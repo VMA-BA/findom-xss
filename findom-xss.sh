@@ -62,7 +62,7 @@ _main() {
 		echo -e "\n\033[0;33mThe target must start with 'http'.\033[0m" && return;
 	fi
 
-	if [[ `_healthCheck ${1} ${DOMAIN}` -eq "0" ]]; then
+	if [ $(_healthCheck ${1} ${DOMAIN}) -eq 0 ]; then
 		echo -e "\n\033[0;31mThe '${DOMAIN}' host is unreachable!\033[0m" && return;
 	fi
 	
